@@ -1,0 +1,1035 @@
+<!doctype html>
+<html class="no-js" lang="es" data-content_root="./">
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Índice" href="genindex.html"><link rel="search" title="Búsqueda" href="search.html"><link rel="prev" title="Control de Stock" href="index.html">
+
+    <!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
+        <title>Modulos - Control de Stock v1.0</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d111a655" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=7bdb33bb" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=8dab3a3b" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f2f2f2;
+  --color-code-foreground: #1e1e1e;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle site navigation sidebar">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc" aria-label="Toggle table of contents sidebar">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">Control de Stock v1.0</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+  
+  <span class="sidebar-brand-text">Control de Stock v1.0</span>
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder="Búsqueda" name="q" aria-label="Búsqueda">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Modulos</span></p>
+<ul class="current">
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Modulos</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="view-this-page">
+  <a class="muted-link" href="_sources/modulos.rst.txt" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div>
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section id="modulos">
+<h1>Modulos<a class="headerlink" href="#modulos" title="Link to this heading">¶</a></h1>
+<p>La aplicacion esta organizada siguiendo el patron <strong>MVC</strong> combinado con el
+patron <strong>Observador</strong>. A continuacion se documentan los modulos segun su
+capa correspondiente.</p>
+<hr class="docutils" />
+<section id="capa-de-datos">
+<h2>Capa de datos<a class="headerlink" href="#capa-de-datos" title="Link to this heading">¶</a></h2>
+<p>Estos modulos gestionan la conexion a la base de datos y las operaciones
+sobre la tabla <code class="docutils literal notranslate"><span class="pre">productos</span></code>.</p>
+<section id="module-database">
+<span id="base-de-datos-database"></span><h3>Base de datos (<code class="docutils literal notranslate"><span class="pre">database</span></code>)<a class="headerlink" href="#module-database" title="Link to this heading">¶</a></h3>
+<p>Modulo de configuracion de la base de datos.</p>
+<p>Definimos la conexion a SQLite mediante Peewee ORM, el modelo de la tabla
+<code class="docutils literal notranslate"><span class="pre">productos</span></code> y la funcion de inicializacion de la base de datos.</p>
+<dl class="py data">
+<dt class="sig sig-object py" id="database.db">
+<span class="sig-prename descclassname"><span class="pre">database.</span></span><span class="sig-name descname"><span class="pre">db</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;peewee.SqliteDatabase</span> <span class="pre">object&gt;</span></span><a class="headerlink" href="#database.db" title="Link to this definition">¶</a></dt>
+<dd><p>Instancia de la base de datos SQLite.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="database.BaseModel">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">database.</span></span><span class="sig-name descname"><span class="pre">BaseModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/database.html#BaseModel"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#database.BaseModel" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<p>Modelo base del que heredan todos los modelos de la aplicacion.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="database.BaseModel.DoesNotExist">
+<span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#database.BaseModel.DoesNotExist" title="Link to this definition">¶</a></dt>
+<dd><p>alias de <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModelDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="database.BaseModel.id">
+<span class="sig-name descname"><span class="pre">id</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;AutoField:</span> <span class="pre">BaseModel.id&gt;</span></span><a class="headerlink" href="#database.BaseModel.id" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="database.Producto">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">database.</span></span><span class="sig-name descname"><span class="pre">Producto</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/database.html#Producto"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#database.Producto" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#database.BaseModel" title="database.BaseModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></a></p>
+<p>Representa un producto dentro del sistema de control de stock.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a>) – Identificador unico autoincremental.</p></li>
+<li><p><strong>codigo</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – Codigo unico del producto.</p></li>
+<li><p><strong>nombre</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – Nombre del producto.</p></li>
+<li><p><strong>precio</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><em>float</em></a>) – Precio del producto.</p></li>
+<li><p><strong>stock</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a>) – Disponibilidad.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="database.Producto.id">
+<span class="sig-name descname"><span class="pre">id</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;AutoField:</span> <span class="pre">Producto.id&gt;</span></span><a class="headerlink" href="#database.Producto.id" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="database.Producto.codigo">
+<span class="sig-name descname"><span class="pre">codigo</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;CharField:</span> <span class="pre">Producto.codigo&gt;</span></span><a class="headerlink" href="#database.Producto.codigo" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="database.Producto.nombre">
+<span class="sig-name descname"><span class="pre">nombre</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;CharField:</span> <span class="pre">Producto.nombre&gt;</span></span><a class="headerlink" href="#database.Producto.nombre" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="database.Producto.precio">
+<span class="sig-name descname"><span class="pre">precio</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;FloatField:</span> <span class="pre">Producto.precio&gt;</span></span><a class="headerlink" href="#database.Producto.precio" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="database.Producto.stock">
+<span class="sig-name descname"><span class="pre">stock</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;IntegerField:</span> <span class="pre">Producto.stock&gt;</span></span><a class="headerlink" href="#database.Producto.stock" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="database.Producto.DoesNotExist">
+<span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#database.Producto.DoesNotExist" title="Link to this definition">¶</a></dt>
+<dd><p>alias de <code class="xref py py-class docutils literal notranslate"><span class="pre">ProductoDoesNotExist</span></code></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="database.inicializar_db">
+<span class="sig-prename descclassname"><span class="pre">database.</span></span><span class="sig-name descname"><span class="pre">inicializar_db</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/database.html#inicializar_db"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#database.inicializar_db" title="Link to this definition">¶</a></dt>
+<dd><p>Conecta a la base de datos y crea las tablas si no existen.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="database.cerrar_db">
+<span class="sig-prename descclassname"><span class="pre">database.</span></span><span class="sig-name descname"><span class="pre">cerrar_db</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/database.html#cerrar_db"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#database.cerrar_db" title="Link to this definition">¶</a></dt>
+<dd><p>Cierra la conexion a la base de datos si esta abierta.</p>
+<p>Debe llamarse al cerrar la aplicacion para evitar bloqueos en el archivo
+<code class="docutils literal notranslate"><span class="pre">stock.db</span></code>.</p>
+</dd></dl>
+
+</section>
+<hr class="docutils" />
+<section id="module-modelo">
+<span id="modelo-crud-modelo"></span><h3>Modelo CRUD (<code class="docutils literal notranslate"><span class="pre">modelo</span></code>)<a class="headerlink" href="#module-modelo" title="Link to this heading">¶</a></h3>
+<p>Modulo de la capa de acceso a la base de datos.</p>
+<p>Contiene la clase <a class="reference internal" href="#modelo.Abmc" title="modelo.Abmc"><code class="xref py py-class docutils literal notranslate"><span class="pre">Abmc</span></code></a> que encapsula todas las operaciones de la
+logica de negocios sobre la tabla <code class="docutils literal notranslate"><span class="pre">productos</span></code>.</p>
+<p>Implementa el patron <strong>Observador</strong>: cuando los datos cambian, notifica
+automaticamente a todos los observadores registrados.</p>
+<p>Configura el sistema de logging de la aplicacion, escribiendo los registros
+en consola y en el archivo <code class="docutils literal notranslate"><span class="pre">stock.log</span></code>.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="modelo.Abmc">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">modelo.</span></span><span class="sig-name descname"><span class="pre">Abmc</span></span><a class="reference internal" href="_modules/modelo.html#Abmc"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#modelo.Abmc" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Clase que gestiona las operaciones CRUD sobre la tabla productos.</p>
+<p>Actua como <strong>sujeto</strong> del patron Observador. Mantiene una lista de
+funciones observadoras que son invocadas automaticamente cada vez que
+los datos son modificados.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="modelo.Abmc.registrar_observador">
+<span class="sig-name descname"><span class="pre">registrar_observador</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">observador</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo.html#Abmc.registrar_observador"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#modelo.Abmc.registrar_observador" title="Link to this definition">¶</a></dt>
+<dd><p>Registra una funcion como observadora del modelo.</p>
+<p>La funcion sera llamada sin argumentos cada vez que los datos
+cambien como resultado de una operacion de alta, baja o modificacion.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>observador</strong> (<em>callable</em>) – Funcion a registrar como observadora.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="modelo.Abmc.agregar_producto">
+<span class="sig-name descname"><span class="pre">agregar_producto</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">codigo</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nombre</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">precio</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stock</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo.html#Abmc.agregar_producto"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#modelo.Abmc.agregar_producto" title="Link to this definition">¶</a></dt>
+<dd><p>Agrega un nuevo producto a la base de datos.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>codigo</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – Codigo unico del producto.</p></li>
+<li><p><strong>nombre</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – Nombre del producto.</p></li>
+<li><p><strong>precio</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><em>float</em></a>) – Precio del producto.</p></li>
+<li><p><strong>stock</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a>) – Cantidad en stock.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.14)"><strong>ValueError</strong></a> – Si el codigo ya existe en la base de datos.</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#RuntimeError" title="(in Python v3.14)"><strong>RuntimeError</strong></a> – Si ocurre un error inesperado al insertar.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="modelo.Abmc.eliminar_producto">
+<span class="sig-name descname"><span class="pre">eliminar_producto</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id_producto</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo.html#Abmc.eliminar_producto"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#modelo.Abmc.eliminar_producto" title="Link to this definition">¶</a></dt>
+<dd><p>Elimina un producto de la base de datos por su ID.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>id_producto</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a>) – ID del producto a eliminar.</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#RuntimeError" title="(in Python v3.14)"><strong>RuntimeError</strong></a> – Si ocurre un error al intentar eliminar.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="modelo.Abmc.modificar_producto">
+<span class="sig-name descname"><span class="pre">modificar_producto</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id_producto</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">codigo</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nombre</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">precio</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stock</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo.html#Abmc.modificar_producto"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#modelo.Abmc.modificar_producto" title="Link to this definition">¶</a></dt>
+<dd><p>Modifica los datos de un producto existente.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>id_producto</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a>) – ID del producto a modificar.</p></li>
+<li><p><strong>codigo</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – Nuevo codigo del producto.</p></li>
+<li><p><strong>nombre</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – Nuevo nombre del producto.</p></li>
+<li><p><strong>precio</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><em>float</em></a>) – Nuevo precio del producto.</p></li>
+<li><p><strong>stock</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a>) – Nueva cantidad en stock.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#RuntimeError" title="(in Python v3.14)"><strong>RuntimeError</strong></a> – Si ocurre un error al intentar modificar.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="modelo.Abmc.buscar_por_codigo">
+<span class="sig-name descname"><span class="pre">buscar_por_codigo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">codigo</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo.html#Abmc.buscar_por_codigo"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#modelo.Abmc.buscar_por_codigo" title="Link to this definition">¶</a></dt>
+<dd><p>Busca un producto por su codigo.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>codigo</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – Codigo del producto a buscar.</p>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>Instancia del producto si existe, <code class="docutils literal notranslate"><span class="pre">None</span></code> si no se encuentra.</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#database.Producto" title="database.Producto">database.Producto</a> or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="modelo.Abmc.obtener_productos">
+<span class="sig-name descname"><span class="pre">obtener_productos</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo.html#Abmc.obtener_productos"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#modelo.Abmc.obtener_productos" title="Link to this definition">¶</a></dt>
+<dd><p>Obtiene todos los productos ordenados por ID.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Lista de tuplas con los datos de cada producto.</p>
+</dd>
+<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)">list</a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)">tuple</a>]</p>
+</dd>
+<dt class="field-odd">Muestra<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#RuntimeError" title="(in Python v3.14)"><strong>RuntimeError</strong></a> – Si ocurre un error al consultar la base de datos.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+<hr class="docutils" />
+<section id="capa-de-logica">
+<h2>Capa de logica<a class="headerlink" href="#capa-de-logica" title="Link to this heading">¶</a></h2>
+<p>Contiene el controlador que actua como intermediario entre la vista y el
+modelo, sin depender de ninguna biblioteca grafica.</p>
+<section id="module-controlador">
+<span id="controlador-controlador"></span><h3>Controlador (<code class="docutils literal notranslate"><span class="pre">controlador</span></code>)<a class="headerlink" href="#module-controlador" title="Link to this heading">¶</a></h3>
+<p>Modulo del controlador (patron MVC).</p>
+<p>Actua como intermediario entre la <a class="reference internal" href="#module-vista" title="vista"><code class="xref py py-mod docutils literal notranslate"><span class="pre">vista</span></code></a> y el <a class="reference internal" href="#module-modelo" title="modelo"><code class="xref py py-mod docutils literal notranslate"><span class="pre">modelo</span></code></a>.
+Se encarga de validar los datos ingresados por el usuario y de delegar
+las operaciones al modelo correspondiente.</p>
+<p>El controlador no depende de ninguna biblioteca de interfaz grafica.
+Retorna tuplas <code class="docutils literal notranslate"><span class="pre">(exito,</span> <span class="pre">mensaje)</span></code> que la vista interpreta para mostrar
+los resultados al usuario.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="controlador.Controlador">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">controlador.</span></span><span class="sig-name descname"><span class="pre">Controlador</span></span><a class="reference internal" href="_modules/controlador.html#Controlador"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#controlador.Controlador" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Clase que gestiona la logica entre la Vista y el Modelo.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="controlador.Controlador.registrar_observador">
+<span class="sig-name descname"><span class="pre">registrar_observador</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">observador</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/controlador.html#Controlador.registrar_observador"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#controlador.Controlador.registrar_observador" title="Link to this definition">¶</a></dt>
+<dd><p>Delega el registro de un observador al modelo.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>observador</strong> (<em>callable</em>) – Funcion a registrar como observadora.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="controlador.Controlador.validar_producto">
+<span class="sig-name descname"><span class="pre">validar_producto</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">codigo</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nombre</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">precio</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stock</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/controlador.html#Controlador.validar_producto"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#controlador.Controlador.validar_producto" title="Link to this definition">¶</a></dt>
+<dd><p>Valida los datos de un producto.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>codigo</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – Codigo del producto.</p></li>
+<li><p><strong>nombre</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – Nombre del producto.</p></li>
+<li><p><strong>precio</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – Precio del producto.</p></li>
+<li><p><strong>stock</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – Cantidad en stock.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>Mensaje de error si la validacion falla, o <code class="docutils literal notranslate"><span class="pre">None</span></code> si es
+valido.</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)">str</a> or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="controlador.Controlador.actualizar">
+<span class="sig-name descname"><span class="pre">actualizar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tabla</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/controlador.html#Controlador.actualizar"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#controlador.Controlador.actualizar" title="Link to this definition">¶</a></dt>
+<dd><p>Recarga los datos de la tabla visual con los productos de la base
+de datos.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tabla</strong> (<a class="reference external" href="https://docs.python.org/3/library/tkinter.ttk.html#tkinter.ttk.Treeview" title="(in Python v3.14)"><em>tkinter.ttk.Treeview</em></a>) – Widget Treeview de Tkinter donde se muestran los
+productos.</p>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>Tupla indicando exito y un mensaje descriptivo.</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)">tuple</a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)">bool</a>, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)">str</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="controlador.Controlador.agregar">
+<span class="sig-name descname"><span class="pre">agregar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">codigo</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nombre</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">precio</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stock</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/controlador.html#Controlador.agregar"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#controlador.Controlador.agregar" title="Link to this definition">¶</a></dt>
+<dd><p>Valida y agrega un nuevo producto a la base de datos.</p>
+<p>La tabla se actualiza automaticamente via el patron Observador.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>codigo</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – Codigo del producto.</p></li>
+<li><p><strong>nombre</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – Nombre del producto.</p></li>
+<li><p><strong>precio</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – Precio del producto.</p></li>
+<li><p><strong>stock</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – Cantidad en stock.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>Tupla indicando exito y un mensaje descriptivo.</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)">tuple</a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)">bool</a>, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)">str</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="controlador.Controlador.eliminar">
+<span class="sig-name descname"><span class="pre">eliminar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tabla</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/controlador.html#Controlador.eliminar"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#controlador.Controlador.eliminar" title="Link to this definition">¶</a></dt>
+<dd><p>Elimina el producto seleccionado en la tabla visual.</p>
+<p>La tabla se actualiza automaticamente via el patron Observador.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tabla</strong> (<a class="reference external" href="https://docs.python.org/3/library/tkinter.ttk.html#tkinter.ttk.Treeview" title="(in Python v3.14)"><em>tkinter.ttk.Treeview</em></a>) – Widget Treeview con el producto seleccionado.</p>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>Tupla indicando exito y un mensaje descriptivo.</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)">tuple</a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)">bool</a>, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)">str</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="controlador.Controlador.modificar">
+<span class="sig-name descname"><span class="pre">modificar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id_prod</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">codigo</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nombre</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">precio</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stock</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ventana</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/controlador.html#Controlador.modificar"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#controlador.Controlador.modificar" title="Link to this definition">¶</a></dt>
+<dd><p>Valida y actualiza los cambios sobre un producto existente.</p>
+<p>La tabla se actualiza automaticamente via el patron Observador.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>id_prod</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a>) – ID del producto a modificar.</p></li>
+<li><p><strong>codigo</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – Nuevo codigo del producto.</p></li>
+<li><p><strong>nombre</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – Nuevo nombre del producto.</p></li>
+<li><p><strong>precio</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – Nuevo precio.</p></li>
+<li><p><strong>stock</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – Nueva cantidad en stock.</p></li>
+<li><p><strong>ventana</strong> (<em>tkinter.Toplevel</em>) – Ventana de edicion que se cierra al confirmar.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>Tupla indicando exito y un mensaje descriptivo.</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)">tuple</a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)">bool</a>, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)">str</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="controlador.Controlador.importar_csv">
+<span class="sig-name descname"><span class="pre">importar_csv</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/controlador.html#Controlador.importar_csv"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#controlador.Controlador.importar_csv" title="Link to this definition">¶</a></dt>
+<dd><p>Exporta el inventario actual a un archivo CSV y lo guarda en el
+directorio.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Tupla indicando exito y un mensaje descriptivo.</p>
+</dd>
+<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)">tuple</a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)">bool</a>, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)">str</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="controlador.Controlador.importar_productos">
+<span class="sig-name descname"><span class="pre">importar_productos</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ruta</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/controlador.html#Controlador.importar_productos"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#controlador.Controlador.importar_productos" title="Link to this definition">¶</a></dt>
+<dd><p>Importa productos desde un archivo CSV.</p>
+<p>Los productos nuevos se insertan y los existentes suman su stock.
+Al finalizar retorna un resumen de la operacion.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ruta</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – Ruta al archivo CSV a importar.</p>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>Tupla indicando exito y un mensaje descriptivo.</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)">tuple</a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)">bool</a>, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)">str</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+<hr class="docutils" />
+<section id="capa-de-presentacion">
+<h2>Capa de presentacion<a class="headerlink" href="#capa-de-presentacion" title="Link to this heading">¶</a></h2>
+<p>Modulos responsables de la interfaz grafica y la interaccion con el usuario.</p>
+<section id="module-vista">
+<span id="vista-vista"></span><h3>Vista (<code class="docutils literal notranslate"><span class="pre">vista</span></code>)<a class="headerlink" href="#module-vista" title="Link to this heading">¶</a></h3>
+<p>Modulo de la vista (patron MVC).</p>
+<p>Se encarga de construir la interfaz grafica utilizando Tkinter.
+Interactua con el Controlador para ejecutar las operaciones
+correspondientes sobre los datos.</p>
+<dl class="py data">
+<dt class="sig sig-object py" id="vista.COLUMNAS">
+<span class="sig-prename descclassname"><span class="pre">vista.</span></span><span class="sig-name descname"><span class="pre">COLUMNAS</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('id',</span> <span class="pre">'codigo',</span> <span class="pre">'nombre',</span> <span class="pre">'precio',</span> <span class="pre">'stock')</span></span><a class="headerlink" href="#vista.COLUMNAS" title="Link to this definition">¶</a></dt>
+<dd><p>Orden original de las columnas de la tabla de productos.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="vista.ANCHOS_COLUMNAS">
+<span class="sig-prename descclassname"><span class="pre">vista.</span></span><span class="sig-name descname"><span class="pre">ANCHOS_COLUMNAS</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'codigo':</span> <span class="pre">100,</span> <span class="pre">'id':</span> <span class="pre">50,</span> <span class="pre">'nombre':</span> <span class="pre">250,</span> <span class="pre">'precio':</span> <span class="pre">100,</span> <span class="pre">'stock':</span> <span class="pre">80}</span></span><a class="headerlink" href="#vista.ANCHOS_COLUMNAS" title="Link to this definition">¶</a></dt>
+<dd><p>Anchos originales de cada columna en pixeles.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="vista.ANCHO_BOTON">
+<span class="sig-prename descclassname"><span class="pre">vista.</span></span><span class="sig-name descname"><span class="pre">ANCHO_BOTON</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">20</span></span><a class="headerlink" href="#vista.ANCHO_BOTON" title="Link to this definition">¶</a></dt>
+<dd><p>Ancho fijo para todos los botones del panel lateral.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="vista.Vista">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">vista.</span></span><span class="sig-name descname"><span class="pre">Vista</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vista.html#Vista"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#vista.Vista" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Clase que representa la interfaz grafica de la aplicacion.</p>
+</dd></dl>
+
+</section>
+</section>
+<hr class="docutils" />
+<section id="comunicacion-tcp">
+<h2>Comunicacion TCP<a class="headerlink" href="#comunicacion-tcp" title="Link to this heading">¶</a></h2>
+<p>Modulos que implementan la comunicacion cliente-servidor via sockets TCP.</p>
+<section id="module-servidor">
+<span id="servidor-servidor"></span><h3>Servidor (<code class="docutils literal notranslate"><span class="pre">servidor</span></code>)<a class="headerlink" href="#module-servidor" title="Link to this heading">¶</a></h3>
+<p>Servidor de logs TCP.</p>
+<p>Escucha conexiones de clientes, registra los mensajes recibidos
+junto con la hora y direccion del cliente, y los guarda en <code class="docutils literal notranslate"><span class="pre">servidor.log</span></code>.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="servidor.log">
+<span class="sig-prename descclassname"><span class="pre">servidor.</span></span><span class="sig-name descname"><span class="pre">log</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mensaje</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/servidor.html#log"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#servidor.log" title="Link to this definition">¶</a></dt>
+<dd><p>Imprime un mensaje en consola y lo guarda en <code class="docutils literal notranslate"><span class="pre">servidor.log</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>mensaje</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – Mensaje a registrar.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="servidor.iniciar">
+<span class="sig-prename descclassname"><span class="pre">servidor.</span></span><span class="sig-name descname"><span class="pre">iniciar</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/servidor.html#iniciar"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#servidor.iniciar" title="Link to this definition">¶</a></dt>
+<dd><p>Inicia el servidor en un hilo secundario.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="servidor.detener">
+<span class="sig-prename descclassname"><span class="pre">servidor.</span></span><span class="sig-name descname"><span class="pre">detener</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/servidor.html#detener"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#servidor.detener" title="Link to this definition">¶</a></dt>
+<dd><p>Detiene el servidor cerrando el socket.</p>
+</dd></dl>
+
+</section>
+<hr class="docutils" />
+<section id="module-cliente">
+<span id="cliente-cliente"></span><h3>Cliente (<code class="docutils literal notranslate"><span class="pre">cliente</span></code>)<a class="headerlink" href="#module-cliente" title="Link to this heading">¶</a></h3>
+<p>Cliente TCP.</p>
+<p>Se conecta al servidor y permite enviar mensajes.
+Al escribir <code class="docutils literal notranslate"><span class="pre">exit</span></code> se desconecta.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="cliente.iniciar">
+<span class="sig-prename descclassname"><span class="pre">cliente.</span></span><span class="sig-name descname"><span class="pre">iniciar</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cliente.html#iniciar"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#cliente.iniciar" title="Link to this definition">¶</a></dt>
+<dd><p>Conecta al servidor y envia mensajes ingresados por consola.</p>
+</dd></dl>
+
+</section>
+</section>
+<hr class="docutils" />
+<section id="utilidades">
+<h2>Utilidades<a class="headerlink" href="#utilidades" title="Link to this heading">¶</a></h2>
+<p>Modulos auxiliares reutilizables que no pertenecen a ninguna capa especifica
+del patron MVC.</p>
+<section id="module-mis_regex">
+<span id="expresiones-regulares-mis-regex"></span><h3>Expresiones regulares (<code class="docutils literal notranslate"><span class="pre">mis_regex</span></code>)<a class="headerlink" href="#module-mis_regex" title="Link to this heading">¶</a></h3>
+<p>Modulo de expresiones regulares para la validacion de datos del formulario.</p>
+<p>Estas expresiones son utilizadas en el controlador para verificar que los
+valores ingresados por el usuario tengan el formato correcto.</p>
+<dl class="py data">
+<dt class="sig sig-object py" id="mis_regex.patron_producto">
+<span class="sig-prename descclassname"><span class="pre">mis_regex.</span></span><span class="sig-name descname"><span class="pre">patron_producto</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'^[A-Za-z0-9]+([A-Za-z0-9</span> <span class="pre">]*[A-Za-z0-9]+)?$'</span></span><a class="headerlink" href="#mis_regex.patron_producto" title="Link to this definition">¶</a></dt>
+<dd><p>Valida el nombre de un producto.</p>
+<p>Acepta letras (mayusculas y minusculas), digitos y espacios intermedios.
+No permite cadenas vacias, ni que empiecen o terminen con espacio.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="mis_regex.precio_producto">
+<span class="sig-prename descclassname"><span class="pre">mis_regex.</span></span><span class="sig-name descname"><span class="pre">precio_producto</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'^[1-9]\\d*(\\.\\d{1,2})?$'</span></span><a class="headerlink" href="#mis_regex.precio_producto" title="Link to this definition">¶</a></dt>
+<dd><p>Valida el precio de un producto.</p>
+<p>Acepta numeros enteros o decimales con hasta dos cifras decimales.
+El precio debe ser mayor a cero (no acepta 0 ni 0.00).</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="mis_regex.stock_producto">
+<span class="sig-prename descclassname"><span class="pre">mis_regex.</span></span><span class="sig-name descname"><span class="pre">stock_producto</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'^\\d+$'</span></span><a class="headerlink" href="#mis_regex.stock_producto" title="Link to this definition">¶</a></dt>
+<dd><p>Valida la cantidad de stock de un producto.</p>
+<p>Acepta enteros positivos incluyendo cero.
+Un stock de 0 indica que el producto existe pero esta agotado.</p>
+</dd></dl>
+
+</section>
+<hr class="docutils" />
+<section id="module-importacion_csv">
+<span id="exportacion-csv-importacion-csv"></span><h3>Exportacion CSV (<code class="docutils literal notranslate"><span class="pre">importacion_csv</span></code>)<a class="headerlink" href="#module-importacion_csv" title="Link to this heading">¶</a></h3>
+<p>Modulo para la importacion de productos desde un archivo CSV.</p>
+<p>Lee un archivo CSV con el formato exportado por la aplicacion e intenta
+insertar cada producto. Si el codigo ya existe, suma el stock al existente.
+Al finalizar reporta cuantos productos se importaron, actualizaron y fallaron.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="importacion_csv.importar_csv">
+<span class="sig-prename descclassname"><span class="pre">importacion_csv.</span></span><span class="sig-name descname"><span class="pre">importar_csv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ruta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">modelo</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/importacion_csv.html#importar_csv"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#importacion_csv.importar_csv" title="Link to this definition">¶</a></dt>
+<dd><p>Importa productos desde un archivo CSV hacia la base de datos.</p>
+<p>Por cada fila del archivo:</p>
+<ul class="simple">
+<li><p>Si el codigo no existe, inserta el producto.</p></li>
+<li><p>Si el codigo ya existe, suma el stock al registro existente.</p></li>
+<li><p>Si los datos son invalidos, cuenta la fila como fallida.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ruta</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – Ruta al archivo CSV a importar.</p></li>
+<li><p><strong>modelo</strong> (<a class="reference internal" href="#modelo.Abmc" title="modelo.Abmc"><em>modelo.Abmc</em></a>) – Instancia del modelo CRUD.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>Tupla con la cantidad de insertados, actualizados y fallidos.</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)">tuple</a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)">int</a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)">int</a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)">int</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<hr class="docutils" />
+<section id="module-0">
+<span id="importacion-csv-importacion-csv"></span><h3>Importacion CSV (<code class="docutils literal notranslate"><span class="pre">importacion_csv</span></code>)<a class="headerlink" href="#module-0" title="Link to this heading">¶</a></h3>
+<p>Modulo para la importacion de productos desde un archivo CSV.</p>
+<p>Lee un archivo CSV con el formato exportado por la aplicacion e intenta
+insertar cada producto. Si el codigo ya existe, suma el stock al existente.
+Al finalizar reporta cuantos productos se importaron, actualizaron y fallaron.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="id0">
+<span class="sig-prename descclassname"><span class="pre">importacion_csv.</span></span><span class="sig-name descname"><span class="pre">importar_csv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ruta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">modelo</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/importacion_csv.html#importar_csv"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#id0" title="Link to this definition">¶</a></dt>
+<dd><p>Importa productos desde un archivo CSV hacia la base de datos.</p>
+<p>Por cada fila del archivo:</p>
+<ul class="simple">
+<li><p>Si el codigo no existe, inserta el producto.</p></li>
+<li><p>Si el codigo ya existe, suma el stock al registro existente.</p></li>
+<li><p>Si los datos son invalidos, cuenta la fila como fallida.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ruta</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – Ruta al archivo CSV a importar.</p></li>
+<li><p><strong>modelo</strong> (<a class="reference internal" href="#modelo.Abmc" title="modelo.Abmc"><em>modelo.Abmc</em></a>) – Instancia del modelo CRUD.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>Tupla con la cantidad de insertados, actualizados y fallidos.</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)">tuple</a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)">int</a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)">int</a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)">int</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<hr class="docutils" />
+<section id="module-decoradores">
+<span id="decoradores-decoradores"></span><h3>Decoradores (<code class="docutils literal notranslate"><span class="pre">decoradores</span></code>)<a class="headerlink" href="#module-decoradores" title="Link to this heading">¶</a></h3>
+<p>Modulo de decoradores para el registro de operaciones CRUD.</p>
+<p>Los decoradores de este modulo se aplican sobre los metodos del
+<a class="reference internal" href="#module-modelo" title="modelo"><code class="xref py py-mod docutils literal notranslate"><span class="pre">modelo</span></code></a> e informan por consola cada vez que se produce un
+ingreso, eliminacion o actualizacion de un registro en la base de datos.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="decoradores.log_operacion">
+<span class="sig-prename descclassname"><span class="pre">decoradores.</span></span><span class="sig-name descname"><span class="pre">log_operacion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mensaje</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/decoradores.html#log_operacion"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#decoradores.log_operacion" title="Link to this definition">¶</a></dt>
+<dd><p>Decorador parametrizable que informa por consola una operacion CRUD.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>mensaje</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – Etiqueta que identifica el tipo de operacion.</p>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>Decorador listo para aplicar sobre una funcion.</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p>callable</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="decoradores.log_ingreso">
+<span class="sig-prename descclassname"><span class="pre">decoradores.</span></span><span class="sig-name descname"><span class="pre">log_ingreso</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#decoradores.log_ingreso" title="Link to this definition">¶</a></dt>
+<dd><p>Informa el ingreso de un nuevo registro.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="decoradores.log_eliminacion">
+<span class="sig-prename descclassname"><span class="pre">decoradores.</span></span><span class="sig-name descname"><span class="pre">log_eliminacion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#decoradores.log_eliminacion" title="Link to this definition">¶</a></dt>
+<dd><p>Informa la eliminacion de un registro.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="decoradores.log_actualizacion">
+<span class="sig-prename descclassname"><span class="pre">decoradores.</span></span><span class="sig-name descname"><span class="pre">log_actualizacion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#decoradores.log_actualizacion" title="Link to this definition">¶</a></dt>
+<dd><p>Informa la actualizacion de un registro.</p>
+</dd></dl>
+
+</section>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          
+          <a class="prev-page" href="index.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Home</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2026, Federico
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Modulos</a><ul>
+<li><a class="reference internal" href="#capa-de-datos">Capa de datos</a><ul>
+<li><a class="reference internal" href="#module-database">Base de datos (<code class="docutils literal notranslate"><span class="pre">database</span></code>)</a><ul>
+<li><a class="reference internal" href="#database.db"><code class="docutils literal notranslate"><span class="pre">db</span></code></a></li>
+<li><a class="reference internal" href="#database.BaseModel"><code class="docutils literal notranslate"><span class="pre">BaseModel</span></code></a><ul>
+<li><a class="reference internal" href="#database.BaseModel.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">BaseModel.DoesNotExist</span></code></a></li>
+<li><a class="reference internal" href="#database.BaseModel.id"><code class="docutils literal notranslate"><span class="pre">BaseModel.id</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#database.Producto"><code class="docutils literal notranslate"><span class="pre">Producto</span></code></a><ul>
+<li><a class="reference internal" href="#database.Producto.id"><code class="docutils literal notranslate"><span class="pre">Producto.id</span></code></a></li>
+<li><a class="reference internal" href="#database.Producto.codigo"><code class="docutils literal notranslate"><span class="pre">Producto.codigo</span></code></a></li>
+<li><a class="reference internal" href="#database.Producto.nombre"><code class="docutils literal notranslate"><span class="pre">Producto.nombre</span></code></a></li>
+<li><a class="reference internal" href="#database.Producto.precio"><code class="docutils literal notranslate"><span class="pre">Producto.precio</span></code></a></li>
+<li><a class="reference internal" href="#database.Producto.stock"><code class="docutils literal notranslate"><span class="pre">Producto.stock</span></code></a></li>
+<li><a class="reference internal" href="#database.Producto.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">Producto.DoesNotExist</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#database.inicializar_db"><code class="docutils literal notranslate"><span class="pre">inicializar_db()</span></code></a></li>
+<li><a class="reference internal" href="#database.cerrar_db"><code class="docutils literal notranslate"><span class="pre">cerrar_db()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-modelo">Modelo CRUD (<code class="docutils literal notranslate"><span class="pre">modelo</span></code>)</a><ul>
+<li><a class="reference internal" href="#modelo.Abmc"><code class="docutils literal notranslate"><span class="pre">Abmc</span></code></a><ul>
+<li><a class="reference internal" href="#modelo.Abmc.registrar_observador"><code class="docutils literal notranslate"><span class="pre">Abmc.registrar_observador()</span></code></a></li>
+<li><a class="reference internal" href="#modelo.Abmc.agregar_producto"><code class="docutils literal notranslate"><span class="pre">Abmc.agregar_producto()</span></code></a></li>
+<li><a class="reference internal" href="#modelo.Abmc.eliminar_producto"><code class="docutils literal notranslate"><span class="pre">Abmc.eliminar_producto()</span></code></a></li>
+<li><a class="reference internal" href="#modelo.Abmc.modificar_producto"><code class="docutils literal notranslate"><span class="pre">Abmc.modificar_producto()</span></code></a></li>
+<li><a class="reference internal" href="#modelo.Abmc.buscar_por_codigo"><code class="docutils literal notranslate"><span class="pre">Abmc.buscar_por_codigo()</span></code></a></li>
+<li><a class="reference internal" href="#modelo.Abmc.obtener_productos"><code class="docutils literal notranslate"><span class="pre">Abmc.obtener_productos()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#capa-de-logica">Capa de logica</a><ul>
+<li><a class="reference internal" href="#module-controlador">Controlador (<code class="docutils literal notranslate"><span class="pre">controlador</span></code>)</a><ul>
+<li><a class="reference internal" href="#controlador.Controlador"><code class="docutils literal notranslate"><span class="pre">Controlador</span></code></a><ul>
+<li><a class="reference internal" href="#controlador.Controlador.registrar_observador"><code class="docutils literal notranslate"><span class="pre">Controlador.registrar_observador()</span></code></a></li>
+<li><a class="reference internal" href="#controlador.Controlador.validar_producto"><code class="docutils literal notranslate"><span class="pre">Controlador.validar_producto()</span></code></a></li>
+<li><a class="reference internal" href="#controlador.Controlador.actualizar"><code class="docutils literal notranslate"><span class="pre">Controlador.actualizar()</span></code></a></li>
+<li><a class="reference internal" href="#controlador.Controlador.agregar"><code class="docutils literal notranslate"><span class="pre">Controlador.agregar()</span></code></a></li>
+<li><a class="reference internal" href="#controlador.Controlador.eliminar"><code class="docutils literal notranslate"><span class="pre">Controlador.eliminar()</span></code></a></li>
+<li><a class="reference internal" href="#controlador.Controlador.modificar"><code class="docutils literal notranslate"><span class="pre">Controlador.modificar()</span></code></a></li>
+<li><a class="reference internal" href="#controlador.Controlador.importar_csv"><code class="docutils literal notranslate"><span class="pre">Controlador.importar_csv()</span></code></a></li>
+<li><a class="reference internal" href="#controlador.Controlador.importar_productos"><code class="docutils literal notranslate"><span class="pre">Controlador.importar_productos()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#capa-de-presentacion">Capa de presentacion</a><ul>
+<li><a class="reference internal" href="#module-vista">Vista (<code class="docutils literal notranslate"><span class="pre">vista</span></code>)</a><ul>
+<li><a class="reference internal" href="#vista.COLUMNAS"><code class="docutils literal notranslate"><span class="pre">COLUMNAS</span></code></a></li>
+<li><a class="reference internal" href="#vista.ANCHOS_COLUMNAS"><code class="docutils literal notranslate"><span class="pre">ANCHOS_COLUMNAS</span></code></a></li>
+<li><a class="reference internal" href="#vista.ANCHO_BOTON"><code class="docutils literal notranslate"><span class="pre">ANCHO_BOTON</span></code></a></li>
+<li><a class="reference internal" href="#vista.Vista"><code class="docutils literal notranslate"><span class="pre">Vista</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#comunicacion-tcp">Comunicacion TCP</a><ul>
+<li><a class="reference internal" href="#module-servidor">Servidor (<code class="docutils literal notranslate"><span class="pre">servidor</span></code>)</a><ul>
+<li><a class="reference internal" href="#servidor.log"><code class="docutils literal notranslate"><span class="pre">log()</span></code></a></li>
+<li><a class="reference internal" href="#servidor.iniciar"><code class="docutils literal notranslate"><span class="pre">iniciar()</span></code></a></li>
+<li><a class="reference internal" href="#servidor.detener"><code class="docutils literal notranslate"><span class="pre">detener()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-cliente">Cliente (<code class="docutils literal notranslate"><span class="pre">cliente</span></code>)</a><ul>
+<li><a class="reference internal" href="#cliente.iniciar"><code class="docutils literal notranslate"><span class="pre">iniciar()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#utilidades">Utilidades</a><ul>
+<li><a class="reference internal" href="#module-mis_regex">Expresiones regulares (<code class="docutils literal notranslate"><span class="pre">mis_regex</span></code>)</a><ul>
+<li><a class="reference internal" href="#mis_regex.patron_producto"><code class="docutils literal notranslate"><span class="pre">patron_producto</span></code></a></li>
+<li><a class="reference internal" href="#mis_regex.precio_producto"><code class="docutils literal notranslate"><span class="pre">precio_producto</span></code></a></li>
+<li><a class="reference internal" href="#mis_regex.stock_producto"><code class="docutils literal notranslate"><span class="pre">stock_producto</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-importacion_csv">Exportacion CSV (<code class="docutils literal notranslate"><span class="pre">importacion_csv</span></code>)</a><ul>
+<li><a class="reference internal" href="#importacion_csv.importar_csv"><code class="docutils literal notranslate"><span class="pre">importar_csv()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-0">Importacion CSV (<code class="docutils literal notranslate"><span class="pre">importacion_csv</span></code>)</a><ul>
+<li><a class="reference internal" href="#id0"><code class="docutils literal notranslate"><span class="pre">importar_csv()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-decoradores">Decoradores (<code class="docutils literal notranslate"><span class="pre">decoradores</span></code>)</a><ul>
+<li><a class="reference internal" href="#decoradores.log_operacion"><code class="docutils literal notranslate"><span class="pre">log_operacion()</span></code></a></li>
+<li><a class="reference internal" href="#decoradores.log_ingreso"><code class="docutils literal notranslate"><span class="pre">log_ingreso()</span></code></a></li>
+<li><a class="reference internal" href="#decoradores.log_eliminacion"><code class="docutils literal notranslate"><span class="pre">log_eliminacion()</span></code></a></li>
+<li><a class="reference internal" href="#decoradores.log_actualizacion"><code class="docutils literal notranslate"><span class="pre">log_actualizacion()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="_static/documentation_options.js?v=4f6decdf"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/scripts/furo.js?v=46bd48cc"></script>
+    <script src="_static/translations.js?v=f85f4cfb"></script>
+    </body>
+</html>
