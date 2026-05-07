@@ -6,7 +6,7 @@ Aplicación de escritorio desarrollada en Python para gestionar un inventario de
 
 ## Vista previa
 
-<img width="900" height="578" alt="image" src="https://github.com/user-attachments/assets/6b001730-9315-46b6-842e-af2bdaa3a62f" />
+<img width="900" height="578" alt="vista_cs" src="https://github.com/user-attachments/assets/f92403f3-6770-43ef-9d1e-40f7d9b3944d" />
 
 ---
 
